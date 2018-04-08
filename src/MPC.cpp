@@ -93,10 +93,6 @@ class FG_eval {
       // only consider actuation at time t
       AD<double> delta0 = vars[delta_start + t - 1];
       AD<double> a0 = vars[a_start + t - 1];
-      if (t>1){
-      	a0 = vars[a_start + t - 2];
-        delta0 = vars[delta_start + t - 2];
-      }
       
       AD<double> f0 = coeffs[0] + coeffs[1] * x0 + coeffs[2] * CppAD::pow(x0, 2);
       AD<double> psides0 = CppAD::atan(coeffs[1] + 2 * coeffs[2] * x0);
